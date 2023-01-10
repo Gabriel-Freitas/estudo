@@ -1,0 +1,10 @@
+datas=series["Data"]
+doses_aplicadas=series["Doses Aplicadas"]
+
+indicedata=np.arange(len(datas))
+
+plt.ylim(doses_aplicadas)
+plt.xticks(indicedata,datas)
+
+
+ header=0, index_col=0, parse_dates=True, squeeze=True

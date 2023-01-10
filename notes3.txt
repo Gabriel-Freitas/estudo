@@ -1,0 +1,34 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+series=pd.read_excel(r"C:\Users\Gabriel\Downloads\Vacinacao24052021.xlsx",engine='openpyxl')
+
+doses_ap=series["Doses Aplicadas"].sum()
+dose1=series["Dose 1"].sum()
+dose2=series["Dose 2"].sum()
+
+doses=[doses_ap, dose1, dose2]
+
+valores=[0, 30000000, 60000000, 90063597]
+doseslabel=["Doses Aplicadas", "Dose 1", "Dose 2"]
+indice=np.arange(len(doses))
+
+
+
+grafico=plt.bar(indice, doses, color=['purple', 'red', 'blue'], alpha=0.5) #barras
+
+plt.xticks(indice, doseslabel)
+
+plt.ylabel("Doses Nacionalmente Distribuídas")
+plt.title("Índice de Vacinação Geral")
+
+
+def autolabel(grafico):
+	for i in grafico:
+	 h=i.get_height()
+	 plt.annotate('{}'.format(h), xy=(i.get_x()+i.get_width()/2,h), xytext=(0,3), textcoords='offset points', ha='center')
+	 
+autolabel(grafico)
+
+plt.show()

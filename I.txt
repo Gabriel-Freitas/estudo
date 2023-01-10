@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+series=pd.read_excel(r"C:\Users\Gabriel\Downloads\Vacinacao24052021.xlsx",engine='openpyxl')
+
+cores=['purple', 'red', 'blue']
+doses_ap=series["Doses Aplicadas"].sum()
+dose1=series["Dose 1"].sum()
+dose2=series["Dose 2"].sum()
+
+doses=[doses_ap, dose1, dose2]
+
+doseslabel=["Doses Aplicadas", "Dose 1", "Dose 2"]
+indice=np.arange(len(doses))
+
+plt.bar(indice, doses, color=['purple', 'red', 'blue'])
+plt.ylim(0, 90063597)
+plt.xticks(indice, doseslabel)
+plt.ylabel("Doses Nacionalmente Distribuídas")
+plt.title("Índice de Vacinação Geral")
+
+plt.show()
+
+
+
