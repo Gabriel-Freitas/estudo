@@ -1,8 +1,0 @@
-import pandas as pd
-import matplotlib.pylab as plt
-import numpy as np
-
-dateparse=lambda dates:pd.datetime.strptime(series, '%Y-%m')
-series=pd.read_excel(r"C:\Users\Gabriel\Downloads\vacinacaopordata.xlsx",engine='openpyxl', index_col='Data', parse_dates='Data', date_parser=dateparse)
-
-series['Doses Aplicadas'].plot(series[])
